@@ -17,6 +17,9 @@ class Room(models.Model):
     updated=models.DateTimeField(auto_now=True) #auto_now takes snapshot everytime
     created = models.DateTimeField(auto_now_add=True) #auto_now_add takes snapshot when we save the instance, for initial time
 
+    class Meta:
+        ordering = ['-updated', '-created']
+
     def  __str__(self):
         return self.name
 
