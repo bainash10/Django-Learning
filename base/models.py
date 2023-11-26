@@ -13,7 +13,7 @@ class Room(models.Model):
     topic = models.ForeignKey(Topic, on_delete=models.SET_NULL, null=True)
     name = models.CharField(max_length=200)
     description = models.TextField(null=True, blank=True) #blank means can be left blanks
-    # participants = 
+    participants = models.ManyToManyField(User, related_name='participants', blank=True)
     updated=models.DateTimeField(auto_now=True) #auto_now takes snapshot everytime
     created = models.DateTimeField(auto_now_add=True) #auto_now_add takes snapshot when we save the instance, for initial time
 
